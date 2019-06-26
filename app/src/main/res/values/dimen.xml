@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_actionBar">45dp</dimen>
+
+    <dimen name="size_text_all">12sp</dimen>
+    <dimen name="size_text_all_error">11sp</dimen>
+</resources>

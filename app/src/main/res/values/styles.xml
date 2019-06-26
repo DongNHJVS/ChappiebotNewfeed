@@ -1,11 +1,81 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:editTextStyle">@style/EditTextTheme</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="buttonStyle">@style/RobotoButtonStyle</item>
+        <item name="textInputStyle">@style/TextInputLayoutAppearance</item>
+    </style>
+
+    <!-- Style of tab-->
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@android:color/white</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/size_text_all</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Style of edit text -->
+    <style name="EditTextTheme" parent="Widget.AppCompat.EditText">
+        <item name="colorControlNormal">@color/dark</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/size_text_all</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!-- Style of TextView -->
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Style of button -->
+    <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Style of TextInputLayout -->
+    <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+        <!-- reference our hint & error styles -->
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="errorTextAppearance">@style/ErrorText</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/dark</item>
+        <item name="colorControlNormal">@color/dark</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/green</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Style of TextInputLayout -->
+    <style name="ErrorText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/size_text_all_error</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Style of TextInputLayout -->
+    <style name="HintText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/size_text_all</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
 </resources>

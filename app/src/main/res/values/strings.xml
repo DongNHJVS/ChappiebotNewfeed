@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ChappiebotNewfeed</string>
+    <string name="string_follow">Theo dõi</string>
+    <string name="string_foryou">Cho bạn</string>
+    <string name="string_soccer">Bóng đá</string>
+    <string name="string_technology">Công nghệ</string>
+    <string name="string_life">Đời sống</string>
+    <string name="string_btn_home">Home</string>
+    <string name="string_btn_acc">Account</string>
+
+    <string name="string_no_implement">No Implement</string>
 </resources>
