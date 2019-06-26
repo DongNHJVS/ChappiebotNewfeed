@@ -8,5 +8,7 @@
     <string name="string_btn_home">Home</string>
     <string name="string_btn_acc">Account</string>
 
+    <string name="string_retry">Retry</string>
+    <string name="string_get_data_error">An error occurred while loading the data</string>
     <string name="string_no_implement">No Implement</string>
 </resources>

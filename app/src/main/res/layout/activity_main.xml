@@ -7,7 +7,7 @@
         android:fitsSystemWindows="true"
         android:id="@+id/main_content"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".Activity.MainActivity">
 
     <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -38,7 +38,6 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     </android.support.design.widget.CoordinatorLayout>
-
 
     <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"

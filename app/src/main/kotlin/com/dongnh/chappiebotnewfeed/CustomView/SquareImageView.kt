@@ -5,11 +5,16 @@ import android.content.Context
 import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
 
-class SquareImageView(context: Context) : AppCompatImageView(context) {
+class SquareImageView : AppCompatImageView {
+    constructor(context: Context) : super(context) {}
 
-    protected override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {}
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        setMeasuredDimension(getMeasuredWidth(), getMeasuredWidth()) //Snap to width
+        setMeasuredDimension(measuredWidth, measuredWidth) //Snap to width
     }
 
     @SuppressLint("ClickableViewAccessibility")

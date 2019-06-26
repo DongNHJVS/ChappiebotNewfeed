@@ -1,7 +1,7 @@
 package com.dongnh.chappiebotnewfeed
 
-import android.arch.lifecycle.ViewModel;
+import com.dongnh.chappiebotnewfeed.Base.BaseViewModel
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }

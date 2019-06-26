@@ -1,4 +1,4 @@
-package com.dongnh.chappiebotnewfeed
+package com.dongnh.chappiebotnewfeed.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import com.dongnh.chappiebotnewfeed.Adapter.MainPagerAdapter
 import com.dongnh.chappiebotnewfeed.Fragment.MainFragment
+import com.dongnh.chappiebotnewfeed.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,19 +28,5 @@ class MainActivity : AppCompatActivity() {
 
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
-
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab) {
-
-            }
-        })
     }
 }
