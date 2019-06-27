@@ -5,6 +5,7 @@ import android.text.format.DateUtils
 import android.util.Log
 import android.view.View
 import com.dongnh.chappiebotnewfeed.API.CallAPI
+import com.dongnh.chappiebotnewfeed.Adapter.AdapterDetail
 import com.dongnh.chappiebotnewfeed.Base.BaseViewModel
 import com.dongnh.chappiebotnewfeed.Model.Detail
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -17,6 +18,7 @@ import javax.inject.Inject
 class DetailViewModel : BaseViewModel() {
     @Inject
     lateinit var callApi: CallAPI
+    val adapterDetail: AdapterDetail = AdapterDetail()
     val errorClickListener = View.OnClickListener { loadDetailFeed() }
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
@@ -78,6 +80,7 @@ class DetailViewModel : BaseViewModel() {
      */
     private fun onRetrieveDetailListSuccess(detail: Detail){
         this.bind(detail)
+        adapterDetail.updateSectionList(detail.sections)
     }
 
     /**

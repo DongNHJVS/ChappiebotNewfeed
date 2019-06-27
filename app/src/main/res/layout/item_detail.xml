@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.dongnh.chappiebotnewfeed.SectionViewModel" />
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:id="@+id/view_video"
+                app:mutableVisibility="@{viewModel.getVisibilityVideo()}"
+                android:layout_height="@dimen/size_item_in_list">
+
+            <ImageView
+                    android:id="@+id/view_video_image"
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    app:mutableImage="@{viewModel.getImageVideoPath()}"
+                    android:layout_height="200dp"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_play"
+                    android:scaleType="center"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/view_video_time"
+                    android:layout_width="wrap_content"
+                    android:background="@color/darkPale"
+                    android:layout_gravity="bottom|end"
+                    app:mutableText="@{viewModel.getDuration()}"
+                    android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                app:mutableVisibility="@{viewModel.getVisibilityGallery()}"
+                android:layout_height="@dimen/size_item_in_list">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    app:mutableImage="@{viewModel.getImagePath()}"
+                    android:layout_height="200dp"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                app:mutableVisibility="@{viewModel.getVisibilityText()}"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center|start"
+                    android:gravity="center|start"
+                    app:mutableText="@{viewModel.getStringText()}"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

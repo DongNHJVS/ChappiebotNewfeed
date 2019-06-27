@@ -9,7 +9,6 @@ import com.dongnh.chappiebotnewfeed.Model.Feed
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class FeedViewModel : BaseViewModel(){
     // Adapter
     val adapterGridView: AdapterGridView = AdapterGridView()
@@ -61,6 +60,7 @@ class FeedViewModel : BaseViewModel(){
 
     }
 
+    // Calc time for view duration video
     fun calcTimeOfVideo(feed: Feed) : String {
         var minutes = (feed.content?.duration?: 0) / 60
         val seconds = (feed.content?.duration?: 0) - minutes * 60

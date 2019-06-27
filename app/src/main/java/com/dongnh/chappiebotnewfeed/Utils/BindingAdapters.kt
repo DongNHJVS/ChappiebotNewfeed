@@ -6,10 +6,7 @@ import android.databinding.BindingAdapter
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.BaseAdapter
-import android.widget.GridView
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -23,6 +20,11 @@ fun setAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
 
 @BindingAdapter("adapterImage")
 fun setAdapterImage(view: GridView, adapter: BaseAdapter) {
+    view.adapter = adapter
+}
+
+@BindingAdapter("adapterDetail")
+fun setAdapterDetail(view: ListView, adapter: BaseAdapter) {
     view.adapter = adapter
 }
 

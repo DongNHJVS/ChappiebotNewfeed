@@ -27,7 +27,6 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -47,6 +46,13 @@
                     android:layout_marginTop="@dimen/margin_item_view"
                     app:mutableText="@{viewModel.getDatePublished()}"
                     android:layout_height="wrap_content"/>
+
+            <ListView
+                    android:layout_width="match_parent"
+                    app:adapterDetail="@{viewModel.getAdapterDetail()}"
+                    android:layout_height="fill_parent">
+
+            </ListView>
 
         </LinearLayout>
 
