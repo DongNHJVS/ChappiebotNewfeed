@@ -3,16 +3,13 @@ package com.dongnh.chappiebotnewfeed.Utils
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import android.databinding.BindingAdapter
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.BaseAdapter
 import android.widget.GridView
+import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -55,6 +52,28 @@ fun setMutableText(view: TextView, text: MutableLiveData<String>?) {
 
 @BindingAdapter("mutableTextImage")
 fun setMutableTextImage(view: SquareImageView, text: MutableLiveData<String>?) {
+    val parentActivity: AppCompatActivity? = view.getParentActivity()
+    if(parentActivity != null && text != null) {
+        text.observe(parentActivity, Observer {
+                value ->
+            // Load when image null
+            if (view.drawable == null) {
+                GlideApp.with(view.context).load(text.value?: "")
+                    .apply(
+                        RequestOptions()
+                            .dontAnimate()
+                            .priority(Priority.HIGH)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .skipMemoryCache(false)
+                    )
+                    .into(view)
+            }
+        })
+    }
+}
+
+@BindingAdapter("mutableImage")
+fun setMutableImage(view: ImageView, text: MutableLiveData<String>?) {
     val parentActivity: AppCompatActivity? = view.getParentActivity()
     if(parentActivity != null && text != null) {
         text.observe(parentActivity, Observer {

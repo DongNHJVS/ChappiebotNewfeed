@@ -13,8 +13,16 @@ import java.util.*
 class FeedViewModel : BaseViewModel(){
     // Adapter
     val adapterGridView: AdapterGridView = AdapterGridView()
-    // Gridview
+    // Gridview visibility
     val visibilityGrid: MutableLiveData<Int> = MutableLiveData()
+    // Gallery visibility
+    val visibilityGallery: MutableLiveData<Int> = MutableLiveData()
+    // Video visibility
+    val visibilityVideo: MutableLiveData<Int> = MutableLiveData()
+    // Image path
+    private val imagePath: MutableLiveData<String> = MutableLiveData()
+    // Duration
+    private val duration: MutableLiveData<String> = MutableLiveData()
     // Data
     private val stringTitle = MutableLiveData<String>()
     // Creater and date created
@@ -30,11 +38,66 @@ class FeedViewModel : BaseViewModel(){
 
         val ago = DateUtils.getRelativeTimeSpanString(time, now, DateUtils.WEEK_IN_MILLIS)
         nameAndDatePost.value = feed.publisher?.name + " * " + ago
-        if (feed.images.isNullOrEmpty()) {
-            visibilityGrid.value = View.GONE
+
+        // No implement content_type is : overview, story, article, long_form
+        if (feed.content_type.equals("video")) {
+            // Show item video
+            visibilityGallery.value = View.GONE
+            visibilityVideo.value = View.VISIBLE
+            imagePath.value = feed.content?.preview_image?.href
+
+            duration.value = calcTimeOfVideo(feed)
+
         } else {
-            adapterGridView.updateImagesFeedList(feed.images)
+            // Show other item like gallery
+            visibilityGallery.value = View.VISIBLE
+            visibilityVideo.value = View.GONE
+            if (feed.images.isNullOrEmpty()) {
+                visibilityGrid.value = View.GONE
+            } else {
+                adapterGridView.updateImagesFeedList(feed.images)
+            }
         }
+
+    }
+
+    fun calcTimeOfVideo(feed: Feed) : String {
+        var minutes = (feed.content?.duration?: 0) / 60
+        val seconds = (feed.content?.duration?: 0) - minutes * 60
+
+        val secondString: String
+        val minutesString: String
+        var hourString: String
+        // Calculation time to view
+        if (seconds < 10) {
+            secondString = "0$seconds"
+        } else {
+            secondString = "" + seconds
+        }
+
+        val hour = minutes / 60
+        if (minutes > 60) {
+            minutes = minutes - hour * 60
+            hourString = " $hour:"
+        } else if (minutes == 60) {
+            minutes = 0
+            hourString = " 01:"
+        } else {
+            hourString = " "
+        }
+
+        if (hour > 0) {
+            hourString = " $hour:"
+        }
+
+        if (minutes < 10 && minutes > 0) {
+            minutesString = "0$minutes:"
+        } else if (minutes == 0) {
+            minutesString = ""
+        } else {
+            minutesString = "$minutes:"
+        }
+        return hourString + minutesString + secondString
     }
 
     fun getStringTitle(): MutableLiveData<String> {
@@ -43,6 +106,14 @@ class FeedViewModel : BaseViewModel(){
 
     fun getNameAndDatePost(): MutableLiveData<String> {
         return nameAndDatePost
+    }
+
+    fun getImagePath(): MutableLiveData<String> {
+        return imagePath
+    }
+
+    fun getDuration(): MutableLiveData<String> {
+        return duration
     }
 
 }
