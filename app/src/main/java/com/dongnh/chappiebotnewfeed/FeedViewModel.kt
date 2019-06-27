@@ -1,13 +1,13 @@
 package com.dongnh.chappiebotnewfeed
 
 import android.arch.lifecycle.MutableLiveData
-import android.text.format.DateUtils
 import android.view.View
 import com.dongnh.chappiebotnewfeed.Adapter.AdapterGridView
 import com.dongnh.chappiebotnewfeed.Base.BaseViewModel
 import com.dongnh.chappiebotnewfeed.Model.Feed
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class FeedViewModel : BaseViewModel(){
     // Adapter
@@ -35,8 +35,20 @@ class FeedViewModel : BaseViewModel(){
         val time = sdf.parse(feed.published_date).getTime()
         val now = System.currentTimeMillis()
 
-        val ago = DateUtils.getRelativeTimeSpanString(time, now, DateUtils.WEEK_IN_MILLIS)
-        nameAndDatePost.value = feed.publisher?.name + " * " + ago
+        var timeString: String
+        val day = TimeUnit.MILLISECONDS.toDays(now - time)
+        val month = (day.toDouble() / 30).toInt()
+        val year = (month / 12)
+        if (year <= 0) {
+            if (month < 0) {
+                timeString = day.toInt().toString() + " Ngày"
+            } else {
+                timeString = month.toString() + " Tháng"
+            }
+        } else {
+            timeString = year.toString() + " Năm"
+        }
+        nameAndDatePost.value = feed.publisher?.name + " * " + timeString
 
         // No implement content_type is : overview, story, article, long_form
         if (feed.content_type.equals("video")) {
