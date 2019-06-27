@@ -87,6 +87,9 @@ class DetailViewModel : BaseViewModel() {
         errorMessage.value = R.string.string_get_data_error
     }
 
+    /**
+     * Binding data to view
+     */
     fun bind(detail: Detail){
         stringTitle.value = detail.title
         stringDescription.value = detail.description

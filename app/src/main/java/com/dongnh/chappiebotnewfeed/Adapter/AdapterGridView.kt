@@ -1,22 +1,12 @@
 package com.dongnh.chappiebotnewfeed.Adapter
 
-import android.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.EditText
-import com.dongnh.chappiebotnewfeed.Model.Image
-import com.dongnh.chappiebotnewfeed.Model.ListFeed
-import com.dongnh.chappiebotnewfeed.R
-import com.dongnh.chappiebotnewfeed.databinding.CustomViewImageBinding
-import android.support.design.widget.CoordinatorLayout.Behavior.setTag
-import android.support.v7.widget.RecyclerView
-import com.dongnh.chappiebotnewfeed.FeedViewModel
 import com.dongnh.chappiebotnewfeed.ImageViewModel
-import com.dongnh.chappiebotnewfeed.Model.Feed
-import com.dongnh.chappiebotnewfeed.databinding.ItemViewBinding
-
+import com.dongnh.chappiebotnewfeed.Model.Image
+import com.dongnh.chappiebotnewfeed.databinding.CustomViewImageBinding
 
 class AdapterGridView : BaseAdapter() {
 

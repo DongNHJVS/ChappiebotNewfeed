@@ -8,6 +8,7 @@ import com.dongnh.chappiebotnewfeed.Injection.Component.ViewModelInjector
 import com.dongnh.chappiebotnewfeed.Injection.Module.NetworkModule
 import com.dongnh.chappiebotnewfeed.MainViewModel
 
+// injector Base View Model
 abstract class BaseViewModel : ViewModel() {
     private val injector: ViewModelInjector = DaggerViewModelInjector
         .builder()

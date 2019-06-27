@@ -40,10 +40,12 @@ class AdapterListView : RecyclerView.Adapter<AdapterListView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    // interface Click on item
     interface OnItemClickListener {
         fun onClick(view: View, data: Feed)
     }
 
+    // Set listener
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.listener = listener
     }

@@ -26,6 +26,7 @@ class DetailActivity : AppCompatActivity() {
         // Create Binding data
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
 
+        // Set up viewmodel
         viewModel = ViewModelProviders.of(this, ViewModelFactoryDetail(this)).get(DetailViewModel::class.java)
         viewModel.errorMessage.observe(this, Observer {
                 errorMessage -> if(errorMessage != null) showError(errorMessage) else hideError()

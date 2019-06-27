@@ -10,7 +10,6 @@ import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +26,7 @@ class MainFragment : Fragment() {
     private var errorSnackbar: Snackbar? = null
     private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: MainViewModel
+
     companion object {
         fun newInstance(): MainFragment = MainFragment()
     }
@@ -50,12 +50,11 @@ class MainFragment : Fragment() {
                 errorMessage -> if(errorMessage != null) showError(errorMessage) else hideError()
         })
 
-        // Change to detail fragment
+        // Change to detail activity
         viewModel.adapterListView.setOnItemClickListener(object : AdapterListView.OnItemClickListener {
             override fun onClick(view: View, data: Feed) {
                 val intent = Intent(context, DetailActivity::class.java)
                 startActivity(intent)
-                Log.e("Click","aaaaaaa")
             }
         })
         binding.viewModel = viewModel
