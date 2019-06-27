@@ -1,5 +1,6 @@
 package com.dongnh.chappiebotnewfeed.API
 
+import com.dongnh.chappiebotnewfeed.Model.Detail
 import com.dongnh.chappiebotnewfeed.Model.ListFeed
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -18,5 +19,5 @@ interface CallAPI {
      * Get the detail from the API
      */
     @GET("/s/v83n38kvsm6qw62/detail.json?dl=1")
-    fun getDetail(): Observable<List<String>>
+    fun getDetail(): Observable<Detail>
 }

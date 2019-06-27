@@ -1,28 +1,26 @@
 package com.dongnh.chappiebotnewfeed.Fragment
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
+import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.annotation.StringRes
+import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.dongnh.chappiebotnewfeed.Activity.DetailActivity
+import com.dongnh.chappiebotnewfeed.Adapter.AdapterListView
 import com.dongnh.chappiebotnewfeed.MainViewModel
-
+import com.dongnh.chappiebotnewfeed.Model.Feed
 import com.dongnh.chappiebotnewfeed.R
 import com.dongnh.chappiebotnewfeed.databinding.MainFragmentBinding
-import android.databinding.DataBindingUtil
-import android.arch.lifecycle.Observer
-import android.support.annotation.StringRes
-import android.support.v7.widget.LinearLayoutManager
-import android.support.design.widget.CoordinatorLayout
-import android.util.Log
-import android.util.TypedValue
-import android.widget.Toast
-import com.dongnh.chappiebotnewfeed.Adapter.AdapterListView
-import com.dongnh.chappiebotnewfeed.Model.Feed
-import android.R.attr.fragment
-import android.support.v4.app.FragmentActivity
 
 class MainFragment : Fragment() {
 
@@ -55,10 +53,8 @@ class MainFragment : Fragment() {
         // Change to detail fragment
         viewModel.adapterListView.setOnItemClickListener(object : AdapterListView.OnItemClickListener {
             override fun onClick(view: View, data: Feed) {
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.add(R.id.main_layout, DetailFragment.newInstance())
-                    ?.commit()
-
+                val intent = Intent(context, DetailActivity::class.java)
+                startActivity(intent)
                 Log.e("Click","aaaaaaa")
             }
         })

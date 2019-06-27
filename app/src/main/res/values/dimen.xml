@@ -4,6 +4,7 @@
     <dimen name="size_item_in_list">200dp</dimen>
 
     <dimen name="margin_item_list">3dp</dimen>
+    <dimen name="margin_item_view">3dp</dimen>
 
     <dimen name="size_text_all">12sp</dimen>
     <dimen name="size_text_all_error">11sp</dimen>
