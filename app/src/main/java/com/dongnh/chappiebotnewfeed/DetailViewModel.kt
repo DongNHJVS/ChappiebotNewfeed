@@ -31,8 +31,6 @@ class DetailViewModel : BaseViewModel() {
     // Date published
     private val datePublished = MutableLiveData<String>()
 
-
-
     private lateinit var subscription: Disposable
 
     init{
